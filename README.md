@@ -98,7 +98,7 @@ F H <BR>
 
 ```
 
-EXP 2-FOA
+
 from collections import deque, defaultdict
 
 def bfs(graph, start, visited, path):
