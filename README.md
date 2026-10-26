@@ -1,6 +1,7 @@
 <h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: </h3>
-<h3>Register Number:     </h3>
+<h3>Date:15.10.2026 </h3>
+<h3>Name:Gajalakshmi V</h3>
+<h3>Register Number:212223040047 </h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -92,4 +93,64 @@ F H <BR>
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
+
+# program
+
+```
+
+EXP 2-FOA
+from collections import deque, defaultdict
+
+def bfs(graph, start, visited, path):
+    queue = deque()
+    visited[start] = True
+    queue.append(start)
+    path.append(start)
+
+    while queue:
+        node = queue.popleft()
+
+        for neighbour in graph[node]:
+            if not visited[neighbour]:
+                visited[neighbour] = True
+                queue.append(neighbour)
+                path.append(neighbour)
+
+    return path
+
+
+graph = defaultdict(list)
+
+v, e = map(int, input("Enter the number of nodes and edges: ").split())
+
+print("\nEnter the edges (Adjacent Nodes):")
+for i in range(e):
+    u, w = input(f"Edge {i+1} (u v): ").split()
+    graph[u].append(w)
+    graph[w].append(u)
+
+print("\nAdjacency List:")
+for node in graph:
+    print(node, "->", graph[node])
+
+start = input("\nEnter the start node for BFS: ")
+
+if start not in graph:
+    print("Invalid start node!")
+else:
+    visited = defaultdict(bool)
+    path = []
+
+    traversedpath = bfs(graph, start, visited, path)
+    print("\nBFS Traversal:", " -> ".join(traversedpath))
+
+```
+
+# output
+
+<img width="570" height="395" alt="image" src="https://github.com/user-attachments/assets/6c94783a-f0c8-404b-92d2-b3c8bdcbb561" />
+
+# result
+
+Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.
 
